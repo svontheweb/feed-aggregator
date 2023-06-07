@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'bootstrap.html'%}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <title>{{ project_name }} - Your personalized feed aggregator</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  {% include 'banner.html' %}
+  
+
+  <div class="container">
+  <div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-6">
+      <form method="POST" action="/rss_feed">
+        <div class="input-group">
+          <input type="text" name="rss_url" class="form-control py-2" placeholder="Enter RSS Feed URL" aria-label="Enter RSS Feed URL" aria-describedby="button-addon2">
+          <br>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="button-addon2">View Feed from this url</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+    
+    <div class="row">
+  {% for article in articles %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ article.pubDate }}</p>
+          <p class="card-text">{{ article.description|safe }}</p>
+        </div>
+        <div class="card-footer">
+          <!-- <small class="text-muted">{{ article.pubDate }}</small> -->
+          <a href="{{ article.link }}" class="btn btn-primary float-right">Read More</a>
+          <!-- A LINK TO https://buzztracker.me/article/https:/www.howtogeek.com/886016/how-to-live-free-in-2023/ -->
+          <!-- <a href="{{ url_for('article', article_link=article.link) }}" class="btn btn-primary">Read with Bionic Reading</a> -->
+          <a href="/br?article_link={{ article.link }}" class="btn btn-primary float-right">Read More with BR</a>
+          <!-- <a href="/br?article_summary={{ article.description }}" class="btn btn-primary float-right">Read More with BR</a> -->
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+      
+</div>
+
+  {% include 'footer.html' %}
+
+  
+</body>
+</html>

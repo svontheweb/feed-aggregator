@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'bootstrap.html'%}
+  <title>{{ project_name }} - Profile</title>
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  {% include 'banner.html' %}
+  <div class='container'>
+    <h1>hola! {{ user_email }}</h1>
+    <h3>your subscription : {{ subbed_feeds }}</h3>
+    <hr>
+    <h1>Feed Form</h1>
+    <form id="feedForm" method="POST" action="/submit_feed">
+      <h5>subscribe to any feed:</h5>
+      <label for="feedUrl">Feed URL:</label>
+      <input type="text" id="feedUrl" name="feedUrl" required><br><br>
+  
+      <input type="submit" value="Submit">
+    </form>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% include 'bootstrap.html'%}
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/my_feeds.css') }}"> -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <title>{{ project_name }} - My Feeds</title>
+</head>
+<body>
+  {% include 'navbar.html' %}
+  {% include 'banner.html' %}
+  <div class='container'>
+  <p><strong><u>Total articles:</u></strong> {{ article_count }}</p>
+  
+    <div class="row">
+  {% for article in articles %}
+    <div class="col-md-4 mb-3">
+      <div class="card h-100">
+        <img src="{{ article.image_url }}" class="card-img-top" alt="{{ article.title }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title }}</h5>
+          <p class="card-text">{{ article.pubDate }}</p>
+          <p class="card-text">{{ article.description|safe }}</p>
+        </div>
+        <div class="card-footer">
+          <!-- <small class="text-muted">{{ article.pubDate }}</small> -->
+          <a href="{{ article.link }}" class="btn btn-primary float-right">Read More</a>
+          <a href="{{ url_for('article', article_link=article.link) }}" class="btn btn-primary">Read with Bionic Reading</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+  
+  </div>
+
+  {% include 'footer.html' %}
+
+  
+</body>
+</html>

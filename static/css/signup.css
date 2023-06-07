@@ -1,0 +1,92 @@
+/* Reset default browser styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+
+.signup-box {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 20px auto;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.signup-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.signup-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-box label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.signup-box input {
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.signup-box .error-message {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.signup-box button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.signup-box button:hover {
+  background-color: #3e8e41;
+}
+
+.signup-box .popup {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.signup-box .popup a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+/* Mobile Optimization */
+@media only screen and (max-width: 600px) {
+  .signup-box {
+    margin: 10px;
+    padding: 10px;
+  }
+  
+  .signup-box h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .signup-box input,
+  .signup-box button {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

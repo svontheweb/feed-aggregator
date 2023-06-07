@@ -1,0 +1,52 @@
+/* html {
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  background-color: darkgray;
+}
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: yellow;
+} */
+.vertical-navbar {
+      width: 200px;
+      height: 100%;
+      position: fixed;
+      top: 10;
+      left: 0;
+      background-color:  #333;   /*we use this before #5B4ECF*/
+      overflow-x: hidden;
+      padding-top: 60px;
+    }
+    
+    /* Style for the links inside the vertical navbar */
+    .vertical-navbar a {
+      display: block;
+      color: #f2f2f2;
+      text-align: center;
+      padding: 12px;
+      text-decoration: none;
+    }
+    
+    /* Style for the active link in the vertical navbar */
+    .active {
+      background-color: #4CAF50;
+      color: white;
+    }
+    
+    /* Style for the main content */
+    .main-content {
+      margin-left: 200px; /* Same width as the vertical navbar */
+      padding: 20px;
+    }
+    /* Footer styles */
+    footer {
+      background-color: #f2f2f2;
+      padding: 20px;
+      text-align: center;
+    }
+
